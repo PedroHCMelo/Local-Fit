@@ -44,13 +44,15 @@ async function loadMarkersFromJSON()
             const name = record[1];
             const latitude = record[16];
             const longitude = record[17];
+            
+            const openingHours = record[14]; // Suponha que o horário esteja no índice 18
 
             // cria os marcadores
             const marker = L.marker([latitude, longitude]).addTo(map);
-            const popupContent = `<b>${name}</b><br>Horário: ${openingHours}`;
-            marker.bindPopup(popupContent);
 
-    
+            const popupContent = `<b>${name}</b><br>Horário: ${openingHours}`;
+
+            marker.bindPopup(popupContent);
         }
     } 
     catch (error) 
