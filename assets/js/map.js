@@ -47,7 +47,10 @@ async function loadMarkersFromJSON()
 
             // cria os marcadores
             const marker = L.marker([latitude, longitude]).addTo(map);
-            marker.bindPopup(name);
+            const popupContent = <b>${name}</b><br>Horário: ${openingHours};
+            marker.bindPopup(popupContent);
+
+    
         }
     } 
     catch (error) 
